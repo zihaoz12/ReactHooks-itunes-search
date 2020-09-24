@@ -1,0 +1,46 @@
+*{
+  box-sizing: border-box;
+}
+
+.App{
+  background-color: #f7f8fc;
+	font-family: 'Open Sans', sans-serif;
+  min-height: 100vh;
+	margin: 0;
+}
+
+div{
+  display: block;
+}
+
+.albums-body{
+  padding-top: 100px;
+}
+
+.albums-body h2{
+  text-align: center;
+}
+
+.albumsLists{
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+}
+
+.album{
+  margin: 10px;
+  border: 1px solid #ccc;
+  width: 12rem;
+  border-radius: 10px;
+  background-color: #ccc;
+}
+
+.album:hover{
+  border: 1px solid #008080;
+}
+
+
+
+
+
+
