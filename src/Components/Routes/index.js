@@ -6,6 +6,7 @@ import AdsManager from '../AdsManager/index';
 import MemoryGame from '../MemoryGame/index';
 import RouterTest from '../RouterTest/index';
 import Products from '../RouterTest/products';
+import ToDoList from '../ToDoList/index';
 
 const PrivateRoute = ({ component: Component, ...rest }) => {
     console.log('rest,',rest)
@@ -41,7 +42,7 @@ const Routes =()=>{
                 
             <Route path="/routertest" component={RouterTest}/>
             <Route path="/products" component={Products}/>
-            
+            <Route path="/todolist" component={ToDoList}/>
         </Switch>
     )
 }

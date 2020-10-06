@@ -1,4 +1,4 @@
-import React,{useState, useEffect} from 'react';
+import React,{useState, useEffect,useRef} from 'react';
 
 import './App.scss';
 import Header from './Header/index.js';
@@ -10,12 +10,18 @@ const App=()=> {
   const [albums,setAlbums] = useState([]);
   const [posts, setPosts] = useState([]);
   
+  const [counter, setCounter] = useState(0);
+  const counterRef = useRef(counter)
+  console.log('counter',counter);
+  console.log('Ref:',counterRef);
+  counterRef.current = counter;
 
   const getPosts = async()=>{
     fetch('https://jsonplaceholder.typicode.com/posts').then(res =>{
       return res.json();
     }).then( res => {
-      console.log('res:',res)
+      let resres = res.filter( item => item.id <= 25)
+      console.log('res:',resres)
       setPosts(res);
     })
   }
@@ -40,15 +46,27 @@ const App=()=> {
   }
 
   
+  const increment=()=>{
+    setCounter(counter+1)
+  }
   
 
   return (
     <div className="App">
       <Header onSubmit={handleSubmit}/>  
       <Routes/>   
+      
       <Albums albums={albums}/>
 
-      
+      <button onClick={increment}>Click</button>
+      <p>CounterRef:{counterRef.current}</p>
+      <div>
+        {
+          posts.map( (item,index)=>(
+            <p key={index}>{item.title}</p>
+          ))
+        }
+      </div>
     </div>
   );
 }
