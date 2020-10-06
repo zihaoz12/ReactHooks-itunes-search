@@ -60,13 +60,7 @@ const App=()=> {
 
       <button onClick={increment}>Click</button>
       <p>CounterRef:{counterRef.current}</p>
-      <div>
-        {
-          posts.map( (item,index)=>(
-            <p key={index}>{item.title}</p>
-          ))
-        }
-      </div>
+      
     </div>
   );
 }
